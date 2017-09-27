@@ -97,7 +97,7 @@ Visualization Manager:
           Show Axes: false
           Show Trail: false
           Value: true
-        link4:
+        tip:
           Alpha: 1
           Show Axes: false
           Show Trail: false
@@ -125,7 +125,7 @@ Visualization Manager:
           Value: true
         link3:
           Value: true
-        link4:
+        tip:
           Value: true
         world:
           Value: true
@@ -140,7 +140,7 @@ Visualization Manager:
             link1:
               link2:
                 link3:
-                  link4:
+                  tip:
                     {}
       Update Interval: 0
       Value: true
@@ -168,7 +168,7 @@ Visualization Manager:
   Views:
     Current:
       Class: rviz/Orbit
-      Distance: 0.95652473
+      Distance: 0.890100837
       Enable Stereo Rendering:
         Stereo Eye Separation: 0.0599999987
         Stereo Focal Distance: 1
