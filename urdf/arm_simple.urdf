@@ -1,0 +1,109 @@
+<?xml version="1.0"?>
+<robot name="visual">
+  <!--This model simulates a simple 4dof arm-->
+  <!--Materials -->
+  <material name="blue">
+    <color rgba="0 0 0.8 1"/>
+  </material>
+  <material name="red">
+    <color rgba="1 0 0 1"/>
+  </material>
+  <material name="white">
+    <color rgba="1 1 1 1"/>
+  </material>
+  <material name="gray">
+    <color rgba="0.6 0.6 0.6 1"/>
+  </material>
+  
+  <link name="world"/>
+  
+
+  <link name="base_link">
+    <visual>
+      <geometry>
+        <cylinder length="0.01" radius="0.05"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0 0 0.005"/>
+      <material name="blue"/>
+    </visual>
+  </link>
+
+  <joint name="world_to_base" type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+    <origin rpy="0 0 0" xyz="0.15 0.15 0"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <link name="link1">
+    <visual>
+      <geometry>
+        <cylinder length="0.1" radius="0.02"/>
+      </geometry>
+
+      <origin rpy="0 0 0" xyz="0 0 0.05"/>
+      <material name="white"/>
+    </visual>
+  </link>
+
+<joint name="base" type="revolute">
+    <axis xyz="0 0 1"/>
+    <limit effort="1000.0" lower="-1.507" upper="1.507" velocity="0.5"/>
+    <origin rpy="0 0 0" xyz="0.0 0.0 0.0"/>
+    <parent link="base_link"/>
+    <child link="link1"/>
+  </joint>
+
+  <link name="link2">
+    <visual>
+      <geometry>
+        <box size="0.2 0.01 0.02"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0.1 0 0"/>
+      <material name="blue"/>
+    </visual>
+  </link>
+
+<joint name="arti1" type="revolute">
+    <axis xyz="0 1 0"/>
+    <limit effort="1000.0" lower="-1.58" upper="0.22" velocity="0.5"/>
+    <origin rpy="0 0 0" xyz="0.0 0.0 0.1"/>
+    <parent link="link1"/>
+    <child link="link2"/>
+  </joint>
+
+<link name="link3">
+    <visual>
+      <geometry>
+        <box size="0.2 0.01 0.02"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="0.1 0 0"/>
+      <material name="white"/>
+    </visual>
+  </link>
+
+<joint name="arti2" type="revolute">
+    <axis xyz="0 1 0"/>
+    <limit effort="1000.0" lower="-1.58" upper="1.58" velocity="0.5"/>
+    <origin rpy="0 0 0" xyz="0.2 0.0 0.0"/>
+    <parent link="link2"/>
+    <child link="link3"/>
+  </joint>
+
+  <link name="tip">
+    <visual>
+      <geometry>
+        <box size="0.04 0.015 0.025"/>
+      </geometry>
+      <origin rpy="0 0 0" xyz="-0.02 0 0"/>
+      <material name="white"/>
+    </visual>
+  </link>
+
+<joint name="tip" type="fixed">
+    <parent link="link3"/>
+    <child link="tip"/>
+    <origin rpy="0 0 0" xyz="0.2 0 0"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+</robot>

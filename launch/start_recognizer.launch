@@ -1,0 +1,11 @@
+<!-- This launches a client to the google voice recognition server -->
+<!-- author: Arturo Escobedo -->
+
+<launch>
+
+   	<!-- if we want to use google recognizer -->
+    <node name="google_recognizer" pkg="rc_armsim" type="google_recognizer.py" output="screen" respawn="True">
+   	</node>
+
+
+</launch>
