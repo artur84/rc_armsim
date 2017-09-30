@@ -33,14 +33,18 @@ class GoogleRecognizer:
         # AIzaSyBj-q9gPnBdvTbVLndF7YL-2jDx76wSW9k
         # AIzaSyBGi56QfVDvkaEwPCf1hcW-zeQENmA352Q
         ## @var self.FLAC_CONV
+        self.LANG_CODE ='en-US'  # fr-FR ,en-US, es-MX
+        THRESHOLD = 500 #20 for bluetooth mic. The threshold intensity that defines silence signal (lower than).
+        
+        
+        
         self.FLAC_CONV = 'flac -f '
         # This is a WAV to FLAC converter. In linux you can use synaptic to install the flac package.
-        self.LANG_CODE ='en-US'  # es-Latn,en-US, es-me
         chunk = 256
         FORMAT = pyaudio.paInt16
         CHANNELS = 1
         RATE = 16000
-        THRESHOLD = 100 #20 for bluetooth mic. The threshold intensity that defines silence signal (lower than).
+        
         SILENCE_LIMIT = 0.5  # Silence limit in seconds. The max amount of seconds where only silence is recorded. When this time passes the recording finishes and the file is delivered.
         
         self.p = pyaudio.PyAudio()
